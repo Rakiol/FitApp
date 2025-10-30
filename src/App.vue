@@ -1,23 +1,26 @@
+
 <script setup>
+
 import Welcome from "./components/pages/Welcome.vue";
+import Layout from "./components/layouts/Layout.vue";
+import Dashboard from "./components/pages/Dashboard.vue";
+import Workout from "./components/pages/Workout.vue";
+
+const selectedDisplay = 2
 </script>
 
 <template>
-  <section id ="welcome">
-    <div class="benefits">
-      <h2>Complete this program<br/>if you want ...</h2>
-      <div>
-        <p>✅ Follow a sinple program with proven results.</p>
-        <p>✅ Get fit, halthy, strong and absolutly shreddes.</p>
-        <p>✅ Learn more about gym, training and technique</p>
-      </div>
-    </div>
-    <div>
-      <h3>The Training Plan</h3>
-      <p>This training plan follows</p>
-    </div>
 
-  </section>
+  <Layout>
+    <!-- PAGE 1 -->
+    <Welcome v-if="selectedDisplay==1"/>
+    <!-- Page 2-->
+    <Dashboard v-if="selectedDisplay==2"/>
+    <!-- Page 3-->
+    <Workout v-if="selectedDisplay==3"/>
+
+  </Layout>
+
 </template>
 
 <style scoped>
