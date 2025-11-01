@@ -26,3 +26,7 @@ const selectedDisplay = 2
 <style scoped>
 
 </style>
+
+
+
+AUFGEHÖRT 1:20 beim video

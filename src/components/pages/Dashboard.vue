@@ -1,7 +1,9 @@
 <script setup>
   import { gymHealthFacts} from "../../utils/index.js";
+  import Grid from "../Grid.vue";
   console.log(gymHealthFacts)
-  const randomNumber = Math.round(Math.random() * 256);
+  const randomNumber = Math.floor(Math.random() * gymHealthFacts.length);
+  const todaysFact = gymHealthFacts[randomNumber];
 </script>
 
 <template>
@@ -9,12 +11,38 @@
     <div class="card tip-container">
       <h2>Welcome Smoldier</h2>
       <div>
-        <p class="tip"><strong>Daily Tip</strong><br/> INJECT THE TIP</p>
+        <p class="tip"><strong>Daily Tip</strong><br/> {{todaysFact}}</p>
       </div>
+      <button>Start workout &rarr;</button>
     </div>
+    <Grid />
   </section>
 </template>
 
 <style scoped>
+  .tip-container,
+  .tip-container div,
+  #dashboard {
+    display: flex;
+  }
 
+  .tip-container,
+  #dashboard {
+    flex-direction: column;
+  }
+
+  #dashboard {
+    gap: 2rem;
+  }
+  
+  .tip-container {
+      gap: 0.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .tip-container {
+      gap: 1rem;
+    }
+    
+  }
 </style>
